@@ -1,0 +1,84 @@
+<div class="container-home">
+  <div class="cont-search">
+    <form (submit)="enviarNombre()" class="form-search">
+        <div class="input-cont-search">
+          <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Search for name">
+        </div>
+        <div class="btn-sub">
+          <button type="submit">Send</button>
+        </div>
+    </form>
+  </div>
+  <div class="cont-forms">
+    <form (ngSubmit)="onSubmit()" class="container form-cont">
+      <div class="row">
+        <mat-form-field class="example-full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput id="name" name="name" [(ngModel)]="name">
+        </mat-form-field>
+        <!-- <p>Nombre: {{name}}</p>-->
+        <div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Check-In</mat-label>
+              <input matInput [matDatepicker]="picker" id="checkIn" name="checkIn" [(ngModel)]="checkInDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Check-Out</mat-label>
+              <input matInput [matDatepicker]="picker2" id="checkOut" name="checkOut" [(ngModel)]="checkOutDate">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="eS">
+          <mat-form-field appearance="fill">
+            <mat-label>Number of Visitors</mat-label>
+            <mat-select id="guests" name="guests" [(ngModel)]="numGuests">
+              <mat-option *ngFor="let numero of numAdults" [value]="numero">
+                {{numero}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <div class="btn-sub">
+            <button mat-button color="primary" type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="survey-container">
+      <div *ngIf="send == 1 && satisfaction.rating == 0">
+        <h1 class="survey-title">Satisfaction Survey</h1>
+        <app-satisfaction-form (submitForm)="onSatisfactionSubmit($event)" [placeholder]="'Type your comment here'"></app-satisfaction-form>
+        <br>
+      </div>
+      <div *ngIf="send === 0">
+        <div class="title-home">
+          <h1>Check-In</h1>
+          <h2><span>TRAVEL WITH PEACE</span></h2>
+          <p>Start your vacation on the right foot with our hassle-free check-in process.
+            <br>At Your Home, our premier vacation rental service, we understand that your time is precious and you
+            deserve a stress-free start to your trip. <br>
+            Relax and enjoy the perfect blend of comfort and sophistication in our stylish and welcoming vacation rentals.
+          </p>
+        </div>
+      </div>
+      <div *ngIf="satisfaction.rating > 0">
+        <div class="s-cont">
+          <p id="p2">Submitted answers:</p>
+          <div *ngIf="satisfaction">
+            <p>Rating: {{satisfaction.rating}}</p>
+            <p>Comment: {{satisfaction.comment}}</p>
+          </div>
+        </div>
+      </div>
+    </div><br>
+  </div>
+  
+</div>

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Radley&display=swap');
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.title-container h1{
+    color: white;
+    font-size: 5rem;
+}
+
+.title-container h3{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    min-height: 100%;
+    min-width: 100%;
+    background-image: url(../../../assets/imgs/fake/fake-recep.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
+
+.check-container {
+    padding: 30px;
+    height: 400px;
+    background-color: #072230;
+    margin: 0 auto;
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    min-height: 80%;
+    min-width: 80%;
+     width: 95%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
